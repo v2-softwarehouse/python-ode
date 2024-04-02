@@ -1,9 +1,9 @@
 from typing import TypeVar, Generic, Optional
-from BabelFish.callback_decorator import CallbackDecorator
-from BabelFish.output import Output
-from BabelFish.value_out_put import ValueOutput
+from ode.callback_decorator import CallbackDecorator
+from ode.output import Output
+from ode.value_out_put import ValueOutput
 
-from BabelFish.use_case import UseCase
+from ode.use_case import UseCase
 
 P = TypeVar('P')
 R = TypeVar('R')

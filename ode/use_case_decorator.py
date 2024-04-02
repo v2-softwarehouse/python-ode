@@ -1,7 +1,7 @@
 from abc import abstractmethod
 from typing import TypeVar, Optional
-from BabelFish.use_case import UseCase
-from BabelFish.output import Output
+from ode.use_case import UseCase
+from ode.output import Output
 import asyncio
 
 P = TypeVar('P')

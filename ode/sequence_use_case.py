@@ -1,5 +1,5 @@
 from typing import TypeVar, List, Optional
-from BabelFish.use_case import UseCase
+from ode.use_case import UseCase
 from output import Output
 from value_out_put import ValueOutput
 from use_case_unit import UseCaseUnit

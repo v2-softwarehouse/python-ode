@@ -1,12 +1,12 @@
 from typing import Callable, Optional, TypeVar
 
-from BabelFish.use_case import UseCase
-from BabelFish.callback_decorator import CallbackDecorator
+from ode.use_case import UseCase
+from ode.callback_decorator import CallbackDecorator
 
-from BabelFish.composite_job_disposable import CompositeJobDisposable
-from BabelFish.output import Output
-from BabelFish.use_case_decorator import UseCaseDispatcher
-from BabelFish.use_case_unit import UseCaseUnit
+from ode.composite_job_disposable import CompositeJobDisposable
+from ode.output import Output
+from ode.use_case_decorator import UseCaseDispatcher
+from ode.use_case_unit import UseCaseUnit
 
 P = TypeVar('P', bound=object)
 R = TypeVar('R', bound=object)

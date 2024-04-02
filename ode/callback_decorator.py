@@ -1,7 +1,7 @@
-from BabelFish.error_output import ErrorOutput
-from BabelFish.use_case import UseCase
-from BabelFish.output import Output
-from BabelFish.use_case_decorator import UseCaseDecorator
+from ode.error_output import ErrorOutput
+from ode.use_case import UseCase
+from ode.output import Output
+from ode.use_case_decorator import UseCaseDecorator
 from typing import Callable, TypeVar
 
 P = TypeVar('P')

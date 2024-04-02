@@ -1,5 +1,5 @@
 
-from BabelFish.use_case_decorator import UseCaseDecorator
+from ode.use_case_decorator import UseCaseDecorator
 import threading
 
 class UseCaseDispatcher:

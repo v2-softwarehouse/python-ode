@@ -1,7 +1,7 @@
 from abc import ABC
 from typing import TypeVar, Generic
-from BabelFish.output import Output
-from BabelFish.error_output import ErrorOutput
+from ode.output import Output
+from ode.error_output import ErrorOutput
 
 P = TypeVar('P')
 R = TypeVar('R')

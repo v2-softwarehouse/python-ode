@@ -1,6 +1,6 @@
 from abc import abstractmethod
 from typing import TypeVar
-from BabelFish.output import Output
+from ode.output import Output
 
 V = TypeVar('V')
 
