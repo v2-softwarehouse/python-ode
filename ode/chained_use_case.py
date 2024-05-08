@@ -1,7 +1,7 @@
 from typing import TypeVar
 from ode.use_case import UseCase
-from output import Output
-from error_output import ErrorOutput
+from ode.output import Output
+from ode.error_output import ErrorOutput
 
 P = TypeVar('P')
 R = TypeVar('R')
