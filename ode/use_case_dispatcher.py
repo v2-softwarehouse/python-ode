@@ -1,25 +1,20 @@
+from abc import abstractmethod
+from typing import TypeVar, Optional
+from ode.dispatcher_decorator import DispatcherDecorator
+from ode.use_case import UseCase
+import asyncio
 
-from ode.use_case_decorator import UseCaseDecorator
-import threading
+P = TypeVar('P')
+R = TypeVar('R')
 
 class UseCaseDispatcher:
-    def __init__(self, use_case, execute_on=None, result_on=None):
+    def __init__(
+        self,
+        use_case: UseCase[P, R],
+        execute_on: asyncio.AbstractEventLoop = None,
+        result_on: asyncio.AbstractEventLoop = None
+    ):
         self.decorator = DispatcherDecorator(use_case, execute_on, result_on)
 
-    def dispatch(self, param=None):
+    def dispatch(self, param: Optional[P] = None):
         return self.decorator.dispatch(param)
-
-class DispatcherDecorator(UseCaseDecorator):
-    def __init__(self, use_case, execute_on=None, result_on=None):
-        super().__init__(use_case)
-        self.execute_on = execute_on
-        self.result_on = result_on
-
-    def dispatch(self, param=None):
-        return threading.Thread(target=self.process, args=(param,)).start()
-
-    def on_error(self, error):
-        threading.Thread(target=lambda: self.use_case.on_error(error)).start()
-
-    def on_result(self, output):
-        threading.Thread(target=lambda: self.use_case.on_result(output)).start()
