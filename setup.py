@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 setup(
     name='ode-style',
     packages=find_packages(include=['ode']),
-    version='0.0.4',
+    version='0.0.5',
     description='A framework to drive a clean code',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',

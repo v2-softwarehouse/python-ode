@@ -5,7 +5,7 @@ from ode.callback_decorator import CallbackDecorator
 
 from ode.composite_job_disposable import CompositeJobDisposable
 from ode.output import Output
-from ode.use_case_decorator import UseCaseDispatcher
+from ode.use_case_dispatcher import UseCaseDispatcher
 from ode.use_case_unit import UseCaseUnit
 
 P = TypeVar('P', bound=object)
