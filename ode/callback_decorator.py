@@ -19,3 +19,4 @@ class CallbackDecorator(UseCaseDecorator[P, R]):
             return
         
         self.callback(ErrorOutput(output.error))
+        
