@@ -14,7 +14,7 @@ class UseCase(ABC, Generic[P, R], object):
         self.on_result(output=ErrorOutput(error))
 
     def on_result(self, output: Output[R]):
-        print("UseCase.on_result:", output.value)
+        pass
 
     def guard(self, param: P = None) -> bool:
         return True

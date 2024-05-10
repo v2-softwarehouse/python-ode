@@ -1,29 +1,26 @@
-from abc import abstractmethod
-from typing import TypeVar
-from ode.use_case_decorator import UseCaseDecorator
 import threading
-
-P = TypeVar('P')
-R = TypeVar('R')
+import queue
+from ode.use_case_decorator import UseCaseDecorator
 
 class UseCaseDispatcher:
-    def __init__(self, use_case, execute_on=None, result_on=None):
-        self.decorator = DispatcherDecorator(use_case, execute_on, result_on)
+    def __init__(self, use_case, execute_on=queue.Queue()):
+        self.decorator = DispatcherDecorator(use_case, execute_on)
 
     def dispatch(self, param=None):
         return self.decorator.dispatch(param)
 
 class DispatcherDecorator(UseCaseDecorator):
-    def __init__(self, use_case, execute_on=None, result_on=None):
+    def __init__(self, use_case, result_on: queue.Queue):
         super().__init__(use_case)
-        self.execute_on = execute_on
         self.result_on = result_on
 
     def dispatch(self, param=None):
-        return threading.Thread(target=self.process, args=(param,)).start()
+        threading.Thread(target=self.process(param=param), daemon=True).start()
 
     def on_error(self, error):
-        threading.Thread(target=lambda: self.use_case.on_error(error)).start()
+        threading.Thread(target=self.result_on.task_done(error), daemon=True).start()
+        self.result_on.join()
 
     def on_result(self, output):
-        threading.Thread(target=lambda: self.use_case.on_result(output)).start()
+        threading.Thread(target=self.result_on.task_done(output), daemon=True).start()
+        self.result_on.join()

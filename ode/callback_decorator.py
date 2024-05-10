@@ -13,8 +13,9 @@ class CallbackDecorator(UseCaseDecorator[P, R]):
         super().__init__(use_case)
         self.callback = callback
 
-    def on_result(self, output: Output[R]):
-        self.callback(output)
-
-    def on_error(self, error: Exception):
-        self.callback(ErrorOutput(error))
+    def task_done(self, output: Output[R]):
+        if(output.is_success):
+            self.callback(output)
+            return
+        
+        self.callback(ErrorOutput(output.error))
