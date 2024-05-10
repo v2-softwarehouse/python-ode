@@ -19,8 +19,6 @@ class DispatcherDecorator(UseCaseDecorator):
 
     def on_error(self, error):
         threading.Thread(target=self.result_on.task_done(error), daemon=True).start()
-        self.result_on.join()
 
     def on_result(self, output):
         threading.Thread(target=self.result_on.task_done(output), daemon=True).start()
-        self.result_on.join()
