@@ -10,13 +10,7 @@ R = TypeVar('R')
 class CallbackDecorator(UseCaseDecorator[P, R]):
     
     def __init__(self, use_case: UseCase[P, R], callback: Callable[[Output[R]], None]):
-        super().__init__(use_case)
         self.callback = callback
-
-    def task_done(self, output: Output[R]):
-        if(output.is_success):
-            self.callback(output)
-            return
-        
-        self.callback(ErrorOutput(output.error))
-        
+        use_case.on_result = lambda output : { callback(output)}
+        use_case.on_error = lambda output : { callback(ErrorOutput(output.error))}
+        super().__init__(use_case)
