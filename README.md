@@ -88,15 +88,13 @@ Ode is applied directly to the classes of digital products. It relies on inherit
 ```bash
 # Example installation command
 pip install ode-style
+
 ```
 
 ### Usage
 
 ```python
 # Example usag
-from ode.use_case import UseCase
-from ode.output import Output
-
 class GETAPIUseCase(UseCase[int, HousesToReturn]):
     def __init__(self, repo: RepositoryAPI):
         self.repo = repo
@@ -107,6 +105,7 @@ class GETAPIUseCase(UseCase[int, HousesToReturn]):
         houses = self.repo.read_tags_from_site(site)
         
         return ValueOutput(HousesToReturn(houses))
+
 ```
 
 ## Contributing
