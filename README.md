@@ -118,7 +118,7 @@ Ode is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-For more information, please contact us at info@odeframework.com.
+For more information, please contact us at v2.softwarehouse@gmail.com.
 
 ## Acknowledgements
 
