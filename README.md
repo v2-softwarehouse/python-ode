@@ -86,7 +86,6 @@ Ode is applied directly to the classes of digital products. It relies on inherit
 ### Installation
 
 ```bash
-# Example installation command
 pip install ode-style
 
 ```
@@ -94,7 +93,6 @@ pip install ode-style
 ### Usage
 
 ```python
-# Example usag
 class GETAPIUseCase(UseCase[int, HousesToReturn]):
     def __init__(self, repo: RepositoryAPI):
         self.repo = repo
