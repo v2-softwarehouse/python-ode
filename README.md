@@ -94,19 +94,19 @@ pip install ode-style
 
 ```python
 # Example usag
-  from ode.use_case import UseCase
-  from ode.output import Output
-  
-  class GETAPIUseCase(UseCase[int, HousesToReturn]):
-      def __init__(self, repo: RepositoryAPI):
-          self.repo = repo
-  
-      def execute(self, param: int) -> Output[HousesToReturn]:
-          print("GETAPIUseCase.execute")
-          site = self.repo.do_fetch(page=param)
-          houses = self.repo.read_tags_from_site(site)
-          
-          return ValueOutput(HousesToReturn(houses))
+from ode.use_case import UseCase
+from ode.output import Output
+
+class GETAPIUseCase(UseCase[int, HousesToReturn]):
+    def __init__(self, repo: RepositoryAPI):
+        self.repo = repo
+
+    def execute(self, param: int) -> Output[HousesToReturn]:
+        print("GETAPIUseCase.execute")
+        site = self.repo.do_fetch(page=param)
+        houses = self.repo.read_tags_from_site(site)
+        
+        return ValueOutput(HousesToReturn(houses))
 ```
 
 ## Contributing
