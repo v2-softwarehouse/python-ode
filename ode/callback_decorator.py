@@ -11,6 +11,6 @@ class CallbackDecorator(UseCaseDecorator[P, R]):
     
     def __init__(self, use_case: UseCase[P, R], callback: Callable[[Output[R]], None]):
         self.callback = callback
-        use_case.on_result = lambda output : { callback(output)}
-        use_case.on_error = lambda output : { callback(ErrorOutput(output.error))}
+        use_case.on_result = lambda output : { callback(output) }
+        use_case.on_error = lambda output : { callback(output) }
         super().__init__(use_case)
