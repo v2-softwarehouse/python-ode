@@ -1,9 +1,9 @@
 from setuptools import find_packages, setup
 
 setup(
-    name='ode-style',
+    name='python-ode',
     packages=find_packages(include=['ode']),
-    version='0.0.11',
+    version='0.0.1',
     description='A framework to drive a clean code',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
